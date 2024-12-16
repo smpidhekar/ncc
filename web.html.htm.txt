@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCC Admit Card Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form, #printable {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #printable {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>NCC Admit Card Form</h2>
+    <form id="nccForm">
+        <label>Unit:</label>
+        <input type="text" value="13 MAH BN NCC, KHAMGAON" readonly>
+
+        <label>Year of Enrolment:</label>
+        <input type="text" id="yearEnrolment">
+
+        <label>Number:</label>
+        <input type="text" id="number">
+
+        <label>Rank:</label>
+        <input type="text" id="rank">
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob">
+
+        <label>Father's/Mother's Name:</label>
+        <input type="text" id="parentName">
+
+        <label>School/College & Class:</label>
+        <input type="text" id="schoolClass">
+
+        <label>Year of Passing Cert 'A', 'B':</label>
+        <input type="text" id="yearPassing">
+
+        <label>Attendance in Parades:</label>
+        <input type="text" id="attendance">
+
+        <label>Home Address:</label>
+        <textarea id="homeAddress" rows="4"></textarea>
+
+        <button type="button" onclick="generatePrintable()">Submit</button>
+    </form>
+
+    <!-- Printable Area -->
+    <div id="printable">
+        <h2>NCC Admit Card</h2>
+        <p><strong>Unit:</strong> 13 MAH BN NCC, KHAMGAON</p>
+        <p><strong>Year of Enrolment:</strong> <span id="printYearEnrolment"></span></p>
+        <p><strong>Number:</strong> <span id="printNumber"></span></p>
+        <p><strong>Rank:</strong> <span id="printRank"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="printDOB"></span></p>
+        <p><strong>Father's/Mother's Name:</strong> <span id="printParentName"></span></p>
+        <p><strong>School/College & Class:</strong> <span id="printSchoolClass"></span></p>
+        <p><strong>Year of Passing Cert 'A', 'B':</strong> <span id="printYearPassing"></span></p>
+        <p><strong>Attendance in Parades:</strong> <span id="printAttendance"></span></p>
+        <p><strong>Home Address:</strong> <span id="printHomeAddress"></span></p>
+
+        <button onclick="window.print()">Print</button>
+    </div>
+
+    <script>
+        function generatePrintable() {
+            document.getElementById("printYearEnrolment").innerText = document.getElementById("yearEnrolment").value;
+            document.getElementById("printNumber").innerText = document.getElementById("number").value;
+            document.getElementById("printRank").innerText = document.getElementById("rank").value;
+            document.getElementById("printDOB").innerText = document.getElementById("dob").value;
+            document.getElementById("printParentName").innerText = document.getElementById("parentName").value;
+            document.getElementById("printSchoolClass").innerText = document.getElementById("schoolClass").value;
+            document.getElementById("printYearPassing").innerText = document.getElementById("yearPassing").value;
+            document.getElementById("printAttendance").innerText = document.getElementById("attendance").value;
+            document.getElementById("printHomeAddress").innerText = document.getElementById("homeAddress").value;
+
+            // Show the printable section
+            document.getElementById("printable").style.display = "block";
+            document.getElementById("nccForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>
